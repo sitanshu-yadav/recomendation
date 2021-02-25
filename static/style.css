@@ -3,14 +3,41 @@
     padding:0;
     box-sizing:border-box;
 }
-.container{
+.conr{
     display: grid;
-    grid-template-columns: 30% 70%;
-    height:100vh
+    grid-template-columns: 20% 80%;
+    height:95vh;
+    margin: 0;
+    padding:0;
+    /* border: black solid 5px; */
+    
 }
 .col1{
     background-color: antiquewhite;
+    margin: 0;
+    padding:0;
+    /* border:red solid 5px; */
+    /* border-radius: 50px; */
+    
+   
+}
+.row{
+    font-size: 25px;
+    width: auto;
+    /* border-radius: 20px ; */
+    /* border: rosybrown 5px solid; */
+    margin: 0;
+    padding: 0;
 }
 .col2{
-    background-color: aqua;
+    /* background-color: aqua; */
+    margin: 0;
+    padding:0;
+    
+    
+}
+.row1{
+    /* border:2px solid rgb(41, 121, 121); */
+    width: auto;
+    border-radius: 5px;
 }

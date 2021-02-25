@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    {% load static %}
-    <link rel="stylesheet" href="{%static 'style.css'%}">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,13 +41,54 @@
             </form>
         </div>
     </nav>
-    </div>
-    <div class="container">
+    
+
+    <div class="conr">
         <div class="col1">
-            Lorem ipsum dolor sit.
+            <div class="row">
+                <div class="row1">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-outline-dark" type="submit">Biography</button>
+                    </form>
+                </div>
+                <div class="row2">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-outline-dark" type="submit">Drama</button>
+                    </form>
+                </div>
+                <div class="row3">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-outline-dark" type="submit">Fantasy</button>
+                    </form>
+                </div>
+                <div class="row4">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-outline-dark" type="submit">Fiction</button>
+                    </form>
+                </div>
+                <div class="row5">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-outline-dark" type="submit">Romance</button>
+                    </form>
+                </div>
+                <div class="row6">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-outline-dark" type="submit">Sci-fi</button>
+                    </form>
+                </div>
+                <div class="row4">
+                    <form class="d-flex-dark" action="/books" method="get">
+                        <button class="btn btn-block btn-outline-dark" type="submit">Thriler</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="col2">
-            Lorem ipsum dolor sit.
+            <form class="d-fluid" action="/books" method="get">
+                <input class="form-control me-1" type="search" name="u_search" placeholder="Search books"
+                    aria-label="Search">
+                <button class="btn btn-outline-dark " type="submit">Search</button>
+            </form>
         </div>
     </div>
 </body>
