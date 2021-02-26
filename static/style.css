@@ -6,7 +6,7 @@
 .conr{
     display: grid;
     grid-template-columns: 20% 80%;
-    height:95vh;
+    height:90vh;
     margin: 0;
     padding:0;
     /* border: black solid 5px; */

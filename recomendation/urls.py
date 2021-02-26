@@ -27,5 +27,8 @@ urlpatterns = [
     path('Fiction',views.Fiction, name='Fiction'),
     path('Romance',views.Romance, name='Romance'),
     path('Sci-fi',views.Scifi, name='Scifi'),
-    path('Thriller',views.Thriller, name='Thriller')
+    path('Thriller',views.Thriller, name='Thriller'),
+    path('cossim',views.cossim, name='Thriller'),
+    path('SVD',views.svd, name='Thriller'),
+    
 ]
