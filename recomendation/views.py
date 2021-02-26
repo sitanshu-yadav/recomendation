@@ -25,3 +25,39 @@ def books (request):
         result=df.loc[df["title"].str.contains(user_search) , :]
         reindex=result.reset_index(drop=True)
         return HttpResponse(reindex.to_html())
+
+def Biography(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="Biography",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())
+def Drama(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="Drama",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())
+def Fantasy(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="Fantasy",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())
+def Fiction(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="Fiction",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())
+def Romance(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="Romance",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())
+def Scifi(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="SciFi",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())
+def Thriller(request):
+    df=pd.read_csv(file)
+    rec=df.loc[df["Genres"]=="Thriller",["book_id","title","authors"]]
+    reindex=rec.reset_index(drop=True)
+    return HttpResponse( reindex.to_html())

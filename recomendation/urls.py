@@ -20,5 +20,12 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name='index'),
-    path('books',views.books, name='books')
+    path('books',views.books, name='books'),
+    path('Biography',views.Biography, name='Biography'),
+    path('Drama',views.Drama, name='Drama'),
+    path('Fantasy',views.Fantasy, name='Fantasy'),
+    path('Fiction',views.Fiction, name='Fiction'),
+    path('Romance',views.Romance, name='Romance'),
+    path('Sci-fi',views.Scifi, name='Scifi'),
+    path('Thriller',views.Thriller, name='Thriller')
 ]
