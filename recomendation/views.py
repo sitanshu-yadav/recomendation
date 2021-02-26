@@ -85,8 +85,26 @@ def cossim(request):
     reindex=rec2.reset_index(drop=True)
     return HttpResponse( reindex.to_html())
 def svd(request):
-    df=pd.read_csv(file)
-    rec=df.loc[df["Genres"]=="Thriller",["book_id","title","authors"]]
-    reindex=rec.reset_index(drop=True)
+    user_search=request.GET.get("search")
+    df2=pd.read_csv(file)
+    result=df2.loc[df2["title"]==user_search, :]
+    a=result.iloc[0][0]
+    df = pd.read_csv('ratings.csv', encoding = "ISO-8859-1")
+    reader = Reader()
+    data = Dataset.load_from_df(df[['user_id', 'book_id', 'rating']], reader)
+    algo = SVD()
+    cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+    df_1 = df[(df['user_id'] == a ) & (df['rating'] == 5)]
+    df_1 = df_1.set_index('book_id')
+    df_1 = df_1.join(df_title)['title']
+    user_1 = df_onlytitle.copy()
+    user_1 = user_1[~user_1['title'].isin(df_onlytitle)]
+    data = Dataset.load_from_df(df[['user_id', 'book_id', 'rating']], reader)
+    trainset = data.build_full_trainset()
+    algo.fit(trainset)
+    user_1['Estimate_Score'] = user_1['book_id'].apply(lambda x: algo.predict(89, x).est)
+    user_1 = user_1.sort_values('Estimate_Score', ascending=False)
+    rec=user_1.head(10)
+    rec2=pd.Series.to_frame(rec)
+    reindex=rec2.reset_index(drop=True)
     return HttpResponse( reindex.to_html())
-    

@@ -84,18 +84,33 @@
             </div>
         </div>
         <div class="col2">
-            <form class="d-flex-dark" action="/cossim" method="get">
-                <input class="form-control me-1" type="search" name="search" placeholder="Search books"
+            <form class="d-flex-dark" >
+                <input class="form-control me-1" type="text" id="recomend" name="search" placeholder="Search books"
                     aria-label="Search">
-                <button class="btn btn-outline-dark " type="submit">Cosine Similarity</button>
-                <!-- <button class="btn btn-outline-dark " type="submit">SVD</button> -->
+                <input type="button" value="Cosine Similarity" onclick="cosin()">
+                <input type="button" value="SVD" onclick="svd()">
             </form>
-            <form class="d-flex-dark" action="/svd" method="get">
+            <!-- <form class="d-flex-dark" action="/svd" method="get">
                 <button class="btn btn-outline-dark " type="submit">SVD</button>
-            </form>
+            </form> -->
             
         </div>
     </div>
+    <script>
+        function cosin(){
+
+            var goc=document.getElementById("recomend"). value ;
+                     
+            window.location.assign("/cossim?"+"search="+goc)
+   
+        }
+        function svd(){
+            window.location.assign("/svd?"+"search="+goc)
+
+        }
+    </script>
 </body>
+
+
 
 </html>

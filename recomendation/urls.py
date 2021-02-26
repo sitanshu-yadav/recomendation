@@ -29,6 +29,6 @@ urlpatterns = [
     path('Sci-fi',views.Scifi, name='Scifi'),
     path('Thriller',views.Thriller, name='Thriller'),
     path('cossim',views.cossim, name='Thriller'),
-    path('SVD',views.svd, name='Thriller'),
+    path('svd',views.svd, name='Thriller'),
     
 ]
