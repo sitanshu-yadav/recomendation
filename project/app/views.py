@@ -145,7 +145,7 @@ def pearson(request):
     corr_target = corr_target.sort_values('PearsonR', ascending = False)
     corr_target.index = corr_target.index.map(int)
     corr_target = corr_target.join(df_title).join(df_book)[['title', 'PearsonR','count']]
-    rec=corr_target[corr_target['count']>=100][1:21]
+    rec=corr_target[corr_target['count']>=100][0:21]
     del rec['count']
     json_records = rec.reset_index().to_json(orient ='records') 
     data = [] 
