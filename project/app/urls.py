@@ -15,6 +15,7 @@ urlpatterns = [
     path('thriller',views.thriller, name='Thriller'),
     path('cossim',views.cossim, name='cossim'),
     path('pearson',views.pearson, name='pearson'),
+    path('submit',views.submit, name='submit'),
 
 
 ]

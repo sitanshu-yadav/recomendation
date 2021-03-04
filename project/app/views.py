@@ -152,5 +152,14 @@ def pearson(request):
     data = json.loads(json_records) 
     context = {'d': data}
     return render(request,'pearson.html',context)
-
-    
+def submit(request):
+    user_search=request.GET.get("s_search")
+    df=pd.read_csv(file)
+    result=df.loc[df["title"].str.contains(user_search) ,["book_id","title","authors"]]
+    reindex=result.reset_index(drop=True)
+    json_records = reindex.reset_index().to_json(orient ='records') 
+    data = [] 
+    data = json.loads(json_records) 
+    context = {'d': data,
+                'b':user_search} 
+    return render(request,'submit.html',context)

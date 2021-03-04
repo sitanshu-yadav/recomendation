@@ -3,105 +3,17 @@
 Home
 {% endblock title %}
 
-<!-- <!doctype html>
-<html lang="en">
-
-<head>
-    {% load static %}
-    <link rel="stylesheet" type=text/css href="/static/style.css">
-    <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-<title>Hello, world!</title>
-</head>
-
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a href="" class="navbar-brand mt-2 mb-2 mx-auto">
-                <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;font-size: 250%;">
-                    Book Recomendation System</p>
-            </a>
-            <form class="d-flex" action="/interestbased" method="get">
-                <input class="form-control me-1" type="search" name="u_search" placeholder="Search books"
-                    aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-
-    <div class="conr" ;>
-        <div class="col1">
-            <div class="row">
-                <p style="font-family:Verdana, Geneva, Tahoma, sans-serif;color: white;"> &emsp;<b>Genre</b></p>
-                <div class="row1 ">
-                    <form class="d-grid-dark" action="/Biography" method="get">
-                        <button class="btn btn-outline-white btn-block" type="submit"
-                            style="color: whitesmoke;">Biography</button>
-                    </form>
-                </div>
-                <div class="row2">
-                    <form class="d-flex-dark" action="/Drama" method="get">
-                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Drama</button>
-                    </form>
-                </div>
-                <div class="row3">
-                    <form class="d-flex-dark" action="/Fantasy" method="get">
-                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Fantasy</button>
-                    </form>
-                </div>
-                <div class="row4">
-                    <form class="d-flex-dark" action="/Fiction" method="get">
-                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Fiction</button>
-                    </form>
-                </div>
-                <div class="row5">
-                    <form class="d-flex-dark" action="/Romance" method="get">
-                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Romance</button>
-                    </form>
-                </div>
-                <div class="row6">
-                    <form class="d-flex-dark" action="/Sci-fi" method="get">
-                        <button class="btn btn-outline-white" type="submit" style="color: whitesmoke;">Sci-fi</button>
-                    </form>
-                </div>
-                <div class="row4">
-                    <form class="d-flex-dark" action="/Thriller" method="get">
-                        <button class="btn btn-block btn-outline-white" type="submit"
-                            style="color: whitesmoke;">Thriller</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-        <div class="col2">
-            <form class="d-flex-dark">
-                <input class="form-control me-1" size="100%" type="text" id="recomend" name="search"
-                    placeholder="Search books" aria-label="Search"><br>
-
-                <input type="button" style="border-color:white;" value="Content" onclick="cosin()">
-                <input type="button" style="border-color:white;" value="Collaborative" onclick="pearson()">
-            </form>
-
-        </div>
-    </div>
     {% block body %}
     <div class="col2">
-        <form class="d-flex-dark">
-            <input class="form-control me-1" size="100%" type="text" id="recomend" name="search"
-                placeholder="Search books" aria-label="Search"><br>
-
-            <input type="button" style="border-color:white;" value="Content" onclick="cosin()">
-            <input type="button" style="border-color:white;" value="Collaborative" onclick="pearson()">
+        <form class="d-flex" action="/submit" method="get">
+            <input class="form-control me-1" type="search" name="s_search" placeholder="Search books"
+                aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Submit</button>
         </form>
+        
 
     </div>
-    <script>
+    <!-- <script>
         function cosin() {
 
             var goc = document.getElementById("recomend").value;
@@ -114,7 +26,7 @@ Home
             window.location.assign("/pearson?" + "search=" + goc)
 
         }
-    </script>
+    </script> -->
 
     {% endblock body %}
     
