@@ -1,30 +1,17 @@
 {% extends "base.html" %}
 {% block title %}
-books
+Home
 {% endblock title %}
 {% block body %}
-<form class="d-flex-dark">
-  <input class="form-control me-1" size="100%" type="text" id="recomend" name="search" placeholder="Search books"
-    aria-label="Search"><br>
+<div class="col2">
+  <form class="d-flex" action="/submit" method="get">
+      <input class="form-control me-1" type="search" name="s_search" placeholder="Search books"
+          aria-label="Search">
+      <button class="btn btn-outline-light" type="submit">Submit</button>
+  </form>
+  
 
-  <input type="button" style="border-color:white;" value="Content" onclick="cosin()">
-  <input type="button" style="border-color:white;" value="Collaborative" onclick="pearson()">
-</form>
-<script>
-  function cosin() {
-
-      var goc = document.getElementById("recomend").value;
-
-      window.location.assign("/cossim?" + "search=" + goc)
-
-  }
-  function pearson() {
-      var goc = document.getElementById("recomend").value;
-      window.location.assign("/pearson?" + "search=" + goc)
-
-  }
-</script>
-
+</div>
 
 
 

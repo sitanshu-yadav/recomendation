@@ -108,7 +108,6 @@ def thriller(request):
 def cossim (request):
     user_search=request.GET.get("search")
     df_title=pd.read_csv(file)
-    col_list= ["book_id", "title"]
     df_title['corpus'] = (pd.Series(df_title[['authors', 'Genres']].fillna('').values.tolist()).str.join(' '))
     tf_corpus = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
     tfidf_matrix_corpus = tf_corpus.fit_transform(df_title['corpus'])
@@ -119,21 +118,24 @@ def cossim (request):
     sim_scores = list(enumerate(cosine_sim_corpus[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     haah = pd.DataFrame(sim_scores, columns = ['index','cosim_score'])
-    book_indices = [i[0] for i in sim_scores]
-    a=titles.iloc[book_indices][:21]
+    haah = haah[haah['cosim_score']>=0.25]
+    a=titles.iloc[haah['index']]
     a.to_frame()
     b=pd.merge(a,haah,left_index=True,right_on='index')
+    b=b.set_index("title")
+    b=b.drop(user_search,axis=0)
     del b['index']
     rec = b
     json_records = rec.reset_index().to_json(orient ='records') 
     data = [] 
     data = json.loads(json_records) 
-    context = {'d': data}
+    context = {'c': user_search,'d': data}
     return render(request,'cossim.html',context)
 def pearson(request):
     user_search=request.GET.get("search")
     df = pd.read_csv(file2, encoding = "ISO-8859-1")
     df_title =  pd.read_csv(file, encoding = "ISO-8859-1")
+    df_title.set_index('book_id', inplace = True)
     f = ['count']
     df_book = pd.DataFrame(df.groupby('book_id')['rating'].agg(f))
     df_p = pd.pivot_table(df,values='rating',index='user_id',columns='book_id')
@@ -141,21 +143,23 @@ def pearson(request):
     target = df_p[i]
     similar_to_target = df_p.corrwith(target)
     corr_target = pd.DataFrame(similar_to_target, columns = ['PearsonR'])
-    corr_target.dropna(inplace = True)
     corr_target = corr_target.sort_values('PearsonR', ascending = False)
     corr_target.index = corr_target.index.map(int)
     corr_target = corr_target.join(df_title).join(df_book)[['title', 'PearsonR','count']]
-    rec=corr_target[corr_target['count']>=100][0:21]
+    corr_target[corr_target['count']>=100]
+    corr_target=corr_target.set_index("title")
+    corr_target=corr_target.drop("The Fellowship of the Ring",axis=0)
+    rec=corr_target[corr_target['PearsonR']>=0.32]
     del rec['count']
     json_records = rec.reset_index().to_json(orient ='records') 
     data = [] 
     data = json.loads(json_records) 
-    context = {'d': data}
+    context = {'c': user_search,'d': data}
     return render(request,'pearson.html',context)
 def submit(request):
-    user_search=request.GET.get("s_search")
+    user_search=request.GET.get("s_search").lower()
     df=pd.read_csv(file)
-    result=df.loc[df["title"].str.contains(user_search) ,["book_id","title","authors"]]
+    result=df.loc[df["title"].str.lower().str.contains(user_search) ,["book_id","title","authors"]]
     reindex=result.reset_index(drop=True)
     json_records = reindex.reset_index().to_json(orient ='records') 
     data = [] 

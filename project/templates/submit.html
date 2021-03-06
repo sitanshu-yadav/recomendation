@@ -4,7 +4,7 @@ Submit
 {% endblock title %}
 {% block body %}
 <div class="container">
-    <h2 class="text-center fst-italic"><u>Are you looking for these books?</u></h2><br>
+    <h2 class="text-center" style="background-color:white;"><b>Results for '{{b}}' are:</b></h2><br>
     <table class="table table-dark table-striped">
         <thead>
             <tr>
@@ -23,14 +23,96 @@ Submit
                 <td>{{i.book_id}}</td>
                 <td>{{i.title}}</td>
                 <td>{{i.authors}}</td>
-                <td><a href="/cossim?search={{i.title}}">Context</a></td>
-                <td><a href="/pearson?search={{i.title}}">collaborative</a></td>
+                <td><a href="/cossim?search={{i.title}}" style="background-color: white;">Content</a></td>
+                <td><a href="/pearson?search={{i.title}}" style="background-color:white;">Collaborative</a></td>
             </tr>
             {% endfor %}
             {% endif %}
             
         </tbody>
     </table>
+    <br>
+    <br>
+    <br>
+    <br><br><br><br><br><br><br>
+    <h2 class="text-center " style="background-color: white;"><b>Here are some popular books for you:</b></h2><br>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>Book_ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th></th>
+                <th></th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> 7 </ttd>
+                <td> The Hobbit </td>
+                <td>  J.R.R Tolkien </td>
+                <td>Fantasy</td>
+                
+            </tr>
+            <tr>
+                <td> 1 </ttd>
+                <td> The Hunger Games </td>
+                <td>Suzanne Collins</td>
+                <td>Scifi,Drama</td>
+            </tr>
+            <tr>
+                <td> 3 </ttd>
+                <td> Twilight </td>
+                <td>Stephenie Meyer</td>
+                <td>Fantasy</td>
+            </tr>
+            <tr>
+                <td> 10 </ttd>
+                <td>Pride and Prejudice</td>
+                <td>Jane Austen</td>
+                <td>Drama, Romance</td>
+            </tr>
+            <tr>
+                <td> 9 </ttd>
+                <td>Angels and Demons</td>
+                <td>Dan Brown</td>
+                <td>Thriller,Drama</td>
+            </tr>
+            <tr>
+                <td> 33 </ttd>
+                <td> Memoirs of a Geisha </td>
+                <td>Arthur Golden</td>
+                <td>Biography</td>
+            </tr>
+            <tr>
+                <td>66 </ttd>
+                <td>Gone with the Wind</td>
+                <td>Margaret Mitchell</td>
+                <td>Romance</td>
+            </tr>
+            <tr>
+                <td> 128</ttd>
+                <td> Steve Jobs </td>
+                <td>Walter Isaacson</td>
+                <td>Biography</td>
+            </tr>
+            <tr>
+                <td> 196 </ttd>
+                <td> Fight Club </td>
+                <td>Chuck Palahniuk</td>
+                <td>Comedy,Drama</td>
+            </tr>
+            <tr>
+                <td> 210 </ttd>
+                <td> Vampire Academy </td>
+                <td>Richelle Mead</td>
+                <td>Horror</td>
+            </tr>
+
+        </tbody>
+
     <script>
         function cosin() {
 
